@@ -1,0 +1,2 @@
+SOURDES = Glob('*.c')
+SharedLibrary('myscons', SOURDES)

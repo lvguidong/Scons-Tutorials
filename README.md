@@ -1,7 +1,7 @@
 # Scons-Tutorials
 # 什么是[Scons](https://www.scons.org/)？
 
-	SCons 是一个开源软件构建工具。将 SCons 视为经典 Make 实用程序的改进的跨平台替代品，具有类似于 autoconf/automake 和编译器缓存（如 ccache）的集成功能。简而言之，SCons 是一种更简单、更可靠、更快速的软件构建方式。
+​	SCons 是一个开源软件构建工具。将 SCons 视为经典 Make 实用程序的改进的跨平台替代品，具有类似于 autoconf/automake 和编译器缓存（如 ccache）的集成功能。简而言之，SCons 是一种更简单、更可靠、更快速的软件构建方式。
 
 
 
@@ -23,21 +23,21 @@
 
 # Scons从哪里来？
 
-	SCons 最初是作为 ScCons 构建工具设计的，它在 2000 年 8 月赢得了 Software Carpentry SC Build 竞赛。该设计反过来又基于 Cons 软件构建实用程序。该项目已重命名为 SCons 以反映它不再与 Software Carpentry 直接相关。
+​	SCons 最初是作为 ScCons 构建工具设计的，它在 2000 年 8 月赢得了 Software Carpentry SC Build 竞赛。该设计反过来又基于 Cons 软件构建实用程序。该项目已重命名为 SCons 以反映它不再与 Software Carpentry 直接相关。
 
 
 
 # github源码
 
-	https://github.com/SCons/scons
-	
-	运行 SCons 需要 Python 3.6 或更高版本。运行标准 SCons 不应该有其他依赖项或要求。支持 Python 3.5 的最后一个版本是 4.2.0。
+https://github.com/SCons/scons
+
+运行 SCons 需要 Python 3.6 或更高版本。运行标准 SCons 不应该有其他依赖项或要求。支持 Python 3.5 的最后一个版本是 4.2.0。
 
 
 
 # 安装
 
-	windows安装示例：
+windows安装示例：
 
 ```
 # to do a system-level install:
@@ -66,14 +66,14 @@ sudo apt-get install scons
 
 # Scons使用
 
-	Scons是一个开放源码、以Python语言编码的自动化构建工具，可用来替代make编写复杂的makefile。并且scons是跨平台的，只要scons脚本写的好，可以在Linux和Windows下随意编译。
+​	Scons是一个开放源码、以Python语言编码的自动化构建工具，可用来替代make编写复杂的makefile。并且scons是跨平台的，只要scons脚本写的好，可以在Linux和Windows下随意编译。
 
 
 ​	
 
 ## 单个文件
 
-	一个最简单的项目， hello.c, 源码在  **[这里](https://github.com/lvguidong/Scons-Tutorials/tree/main/demo1)**：
+​	一个最简单的项目， hello.c, 源码在  **[这里](https://github.com/lvguidong/Scons-Tutorials/tree/main/demo1)**：
 
 ```c
 #include <stdio.h>
@@ -122,7 +122,7 @@ scons: done cleaning targets.
 
 ## 相关命令：
 
- 	scons 不仅可以编写可执行的二进制文件，也可以编译其他类型，执行的类型有：
+​	scons 不仅可以编写可执行的二进制文件，也可以编译其他类型，执行的类型有：
 
 - `Program`:  编译成可执行程序, 这是常用的类型
 - `object`: 只编译成目标文件，这种使用的较少，windows上产生 `.obj` 文件，linux系统中产生`.o`文件
@@ -134,9 +134,9 @@ scons: done cleaning targets.
 
 ## 编译静态文件
 
-	编译静态文件使用类型`Libray`,源码在 **[这里](https://github.com/lvguidong/Scons-Tutorials/tree/main/demo2)**
-	
-	同样Scontruct一行：
+​	编译静态文件使用类型`Libray`,源码在 **[这里](https://github.com/lvguidong/Scons-Tutorials/tree/main/demo2)**
+
+​	同样Scontruct一行：
 
 ```shell
 Library("add.c")
@@ -146,7 +146,7 @@ Library("add.c")
 
 ## 编译动态文件
 
-	编译静态文件使用类型 `SharedLibray`,源码在 **[这里](https://github.com/lvguidong/Scons-Tutorials/tree/main/demo3)**
+​	编译静态文件使用类型 `SharedLibray`,源码在 **[这里](https://github.com/lvguidong/Scons-Tutorials/tree/main/demo3)**
 
 ```
 SharedLibrary("add.c")
@@ -156,9 +156,9 @@ SharedLibrary("add.c")
 
 ## 多个文件
 
-		如果你的项目由多个源文件组成，而且你想指定一些编译的宏定义，以及显式的指定使用某些库，这些对于 SCons 来说，都是非常简单的事情，
-	
-	1.使用Glob() 包含所需要的文件，并且生成自定义名称文件，源码在 [**这里**](https://github.com/lvguidong/Scons-Tutorials/tree/main/demo4)
+​	如果你的项目由多个源文件组成，而且你想指定一些编译的宏定义，以及显式的指定使用某些库，这些对于 SCons 来说，都是非常简单的事情，
+
+​	使用Glob() 包含所需要的文件，并且生成自定义名称文件，源码在 [**这里**](https://github.com/lvguidong/Scons-Tutorials/tree/main/demo4)
 
 ```
 SOURDES = Glob('*.c')
@@ -169,7 +169,7 @@ SharedLibrary('myscons', SOURDES)
 
 ## 配置参数
 
-	makefile可以配置编译的参数，scons也可以，如下示例：
+​	makefile可以配置编译的参数，scons也可以，如下示例：
 
 ```
 Program('test', ['test1.c', 'file1.c', 'file2.c'], 
@@ -179,7 +179,7 @@ Program('test', ['test1.c', 'file1.c', 'file2.c'],
 
 ```
 
-配置文件中 LIBS,LIBAPTH 和 CCFLAGS 是 SCons 内置的关键字，它们的作用如下：
+​	配置文件中 LIBS,LIBAPTH 和 CCFLAGS 是 SCons 内置的关键字，它们的作用如下：
 
 - `LIBS`： 显示的指明要在链接过程中使用的库，如果有多个库，应该把它们放在一个列表里面。这个例子里，我们使用一个称为 m 的库。
 - `LIBPATH`： 链接库的搜索路径，多个搜索路径放在一个列表中。这个例子里，库的搜索路径是 /usr/lib 和 /usr/local/lib。
@@ -190,9 +190,9 @@ Program('test', ['test1.c', 'file1.c', 'file2.c'],
 
 ## 一个典型的示例
 
-参考了zxing的 **[Scontruct](https://github.com/zxing/zxing/blob/00f634024ceeee591f54e6984ea7dd666fab22ae/cpp/SConstruct)** 和 **[SConscript ](https://github.com/zxing/zxing/blob/00f634024ceeee591f54e6984ea7dd666fab22ae/cpp/SConscript)**文件
+​	参考了zxing的 **[Scontruct](https://github.com/zxing/zxing/blob/00f634024ceeee591f54e6984ea7dd666fab22ae/cpp/SConstruct)** 和 **[SConscript ](https://github.com/zxing/zxing/blob/00f634024ceeee591f54e6984ea7dd666fab22ae/cpp/SConscript)**文件
 
-Scontruct:
+​	Scontruct:
 
 ```
 SConscript('SConscript', variant_dir='build')
@@ -204,7 +204,7 @@ Default('all')
 Clean('all', 'build')
 ```
 
-Sconscript:
+​	Sconscript:
 
 ```python
 # -*- python -*-
